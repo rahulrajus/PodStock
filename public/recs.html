@@ -14,11 +14,15 @@
 
     <!-- Bootstrap core CSS -->
     <link href="./Dashboard Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- Custom styles for this template -->
     <link href="./Dashboard Template for Bootstrap_files/dashboard.css" rel="stylesheet">
     <script type="text/javascript" src="script.js"></script>
+<<<<<<< HEAD
     <script type="text/javascript" src="recs.js"></script>
+=======
+>>>>>>> refs/remotes/origin/master
 </head>
 
 <body data-gr-c-s-loaded="true">
@@ -49,7 +53,11 @@
                         <a class="nav-link" href="index.html">Overview <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a class="nav-link" href="groups.html">My Groups</a>
+=======
+                        <a class="nav-link" href="groups.html">My Pods</a>
+>>>>>>> refs/remotes/origin/master
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="investments.html">My Investments</a>
@@ -64,9 +72,82 @@
             </nav>
 
             <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+<<<<<<< HEAD
                 <h1>Investment Recommendations</h1>
 
 
+=======
+                <h1>TJ Friends</h1>
+                <button class="btn btn-outline-success my-2 my-sm-0" onclick="hello()" data-toggle="modal" data-target="#myModal">Invest in Stock</button>
+
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Invest in Stock</h4>
+                      </div>
+                      <div class="modal-body">
+
+                          <p>Ticker Name</p>
+                          <input type="text" id="name">
+                          <p>Number of Shares</p>
+                          <input type="number" id="shares" >
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <form method="post" action="/createpod">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Create</button>
+                        </form>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Ticker Name</th>
+                        <th>
+                          <div class="">
+                            <img src="https://yt3.ggpht.com/-E6gUx8WcmBM/AAAAAAAAAAI/AAAAAAAAAAA/g4w4miefiHE/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" width="100" height="100" class="img-fluid rounded-circle">
+                          </div>
+
+                          Sachin Jain</th>
+                        <th>
+                          <div class="">``
+                            <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/3/000/217/34a/22e16f4.jpg" width="100" height="100" class="img-fluid rounded-circle">
+                          </div>
+                          Rahul Rajan</th>
+                        <th>
+                          <div class="">
+                            <img src="http://www.lokvani.com/lokvani/a_images/y2013/9404SachinHJain.jpg" width="100" height="100" class="img-fluid rounded-circle">
+                          </div>
+                          Sidharth Rampally</th>
+                        <th>
+                          <div class="">
+                            <img src="https://yt3.ggpht.com/-6KxA6LF_ZkE/AAAAAAAAAAI/AAAAAAAAAAA/dG6rppDqzE8/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" width="100" height="100" class="img-fluid rounded-circle">
+                          </div>
+                          Saarthak Sethi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>We the Gifficks</td>
+                        <td>$623</td>
+                        <td>$420</td>
+                        <td>$738</td>
+                        <td>$574</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+>>>>>>> refs/remotes/origin/master
 
                 <!-- Bootstrap core JavaScript
     ================================================== -->
