@@ -46,10 +46,10 @@
             <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Overview <span class="sr-only">(current)</span></a>
+                        <a class="nav-link active" href="index.html">Overview <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="groups.html">My Pods</a>
+                        <a class="nav-link" href="groups.html">My Pods</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="investments.html">My Investments</a>
@@ -65,66 +65,46 @@
 
             <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
                 <h1>My Pods</h1>
-                <button class="btn btn-outline-success my-2 my-sm-0" onclick="hello()" data-toggle="modal" data-target="#myModal">Add Pod</button>
+                <button class="btn btn-outline-success my-2 my-sm-0">Add Pod</button>
 
-
-
-                <!-- Modal -->
-                <div id="myModal" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Add Pod</h4>
-                      </div>
-                      <div class="modal-body">
-
-                          <p>Pod Name</p>
-                          <input type="text" id="name">
-                          <p>Users</p>
-                          <input type="text" id="users" placeholder="Separate e-mails by ,">
-
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <form method="post" action="/createpod">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Create</button>
-                        </form>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
                 <div class="table-responsive">
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>Pod Name</th>
-                        <th>Number of Members</th>
-                        <th>Amount</th>
-                        <th>Your Share (%)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>We the Gifficks</td>
-                        <td>6</td>
-                        <td>$420</td>
-                        <td>32.3%</td>
-                        <td>
-                          <form class="" action="index.html" method="post" action="/showpod">
-                            <!--RAHUL- connect showpod to /group/groupex.html -->
-                            <input type="text"value="We the Gifficks">
-                            <button class="btn btn-outline-success my-2 my-sm-0" >View</button>
-                          </form>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Pod Name</th>
+                                <th>Number of Members</th>
+                                <th>Amount</th>
+                                <th>Your Share (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>We the Gifficks</td>
+                                <td>6</td>
+                                <td>$420</td>
+                                <td>32.3%</td>
+                                <td>
+                                    <form class="" action="index.html" method="post" action="/showpod">
+                                        <button class="btn btn-outline-success my-2 my-sm-0">View</button>
+                                    </form>
 
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+
+                <!-- Bootstrap core JavaScript
+    ================================================== -->
+                <!-- Placed at the end of the document so the pages load faster -->
+                <script src="./Dashboard Template for Bootstrap_files/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+                <script>
+                    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+                </script>
+                <script src="./Dashboard Template for Bootstrap_files/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+                <script src="./Dashboard Template for Bootstrap_files/bootstrap.min.js"></script>
+                <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+                <script src="./Dashboard Template for Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
 
 </body>
 
