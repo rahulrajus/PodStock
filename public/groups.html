@@ -15,7 +15,11 @@
     <link href="./Dashboard Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
         $(document).ready(function() {
+<<<<<<< HEAD
             $('#showpod').on('submit', function(e) {
+=======
+            $('#shwpod').on('submit', function(e) {
+>>>>>>> e5d88515359697b00d2fc1353094cb6d079b981d
                 e.preventDefault();
                 $.ajax({
                     type: "POST",
@@ -33,9 +37,15 @@
     <link href="./Dashboard Template for Bootstrap_files/dashboard.css" rel="stylesheet">
     <script type="text/javascript" src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
+<<<<<<< HEAD
 <body onload="getDataFromDB()">
+=======
+<body>
+>>>>>>> e5d88515359697b00d2fc1353094cb6d079b981d
     <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
         <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -43,7 +53,7 @@
         <nav class="navbar navbar-light" id="navBrand">
             <form class="navbar-brand" action="/home">
                 <img src="Logo.png" width="40" height="40" class="d-inline-block align-top" alt="Logo">
-                <span id="navbar-text">Bootstrap</span>
+                <span id="navbar-text">PodStock</span>
             </form>
         </nav>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -85,6 +95,7 @@
 
             <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
                 <h1>My Pods</h1>
+<<<<<<< HEAD
                 <!-- <form method="post" action=
                 <form class="form-horizontal" method="post" action="/addpod">
                   <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#myModal">Add Pod</button>
@@ -110,6 +121,40 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
+=======
+                <!-- <form method="post" action= -->
+                <!-- <form class="form-horizontal" method="post" action="/addpod"> -->
+                <button type="button" class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#myModal">Add Pod</button>
+                <!-- </form> -->
+
+
+                <!-- Modal -->
+                <div id="myModal" class="modal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Add Pod</h4>
+                            </div>
+                            <form method="post" action="/addpod">
+                                <div class="modal-body">
+                                    <p>Pod Name</p>
+                                    <input type="text" id="name" name="name">
+                                    <p>Users</p>
+                                    <input type="text" id="users" name="users" placeholder="Separate e-mails by ,">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-default" data-dismiss="modal">Create</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+>>>>>>> e5d88515359697b00d2fc1353094cb6d079b981d
 
     </div>
   </div>
@@ -127,7 +172,11 @@
                         <tbody>
                             <tr>
                                 <td>
+<<<<<<< HEAD
                                     <form id="showpod" action="index.html" method="post" action="/showpod">
+=======
+                                    <form id="shwpod" action="index.html" method="post" action="/showpod">
+>>>>>>> e5d88515359697b00d2fc1353094cb6d079b981d
                                         <button type="submit" class="btn btn-outline-success my-2 my-sm-0">View</button>
                                     </form>
 
