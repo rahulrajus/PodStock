@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://v4-alpha.getbootstrap.com/examples/dashboard/ -->
+<html lang="en">
+
+<head>
+        <link rel="shortcut icon" href="Logo.png" />
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./Dashboard Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="./Dashboard Template for Bootstrap_files/dashboard.css" rel="stylesheet">
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <nav class="navbar navbar-light" id="navBrand">
+            <form class="navbar-brand" action="/home">
+                <img src="Logo.png" width="40" height="40" class="d-inline-block align-top" alt="Logo">
+                <span id="navbar-text">PodStock</span>
+            </form>
+        </nav>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+
+            </ul>
+            <img src="http://www.freeiconspng.com/uploads/profile-icon-9.png" href="profile.html" width="40" height="40" alt="">
+            <form class="form-inline mt-2 mt-md-0" action="/login">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+            </form>
+            <form class="form-inline mt-2 mt-md-0" action="/signup">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign Up</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Overview <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="groups.html">My Pods</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="investments.html">My Investments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="market.html">Market</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="recs.html">Recommendations</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+                <h1>Placeholder Pod Name</h1>
+                <!-- <form method="post" action= -->
+                <form id="returnToPods" method="post" action="/returnpods">
+                    <button type="submit" class="btn btn-outline-success my-2 my-sm-0">View</button>
+                </form>
+                <!-- <form class="form-horizontal" method="post" action="/addpod"> -->
+
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Members</th>
+                                <th>Amount</th>
+                                <th>Your Share (%)</th>
+                                <th>Group Investment (Shares)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>6 - Sachin Jain, Rahul Rajan, Saarthak Sethi, Sid Rampally, Alex Marwaha, Vishal Reddy</td>
+                                <td>$420</td>
+                                <td>32.3%</td>
+                                <td>2
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+</body>
+
+</html>
