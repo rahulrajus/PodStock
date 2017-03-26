@@ -24,6 +24,11 @@ html,body{
     border: 1px solid #ccc;
 }
 
+#logo {
+    max-width: 100%;
+   max-height: 100%;
+}
+
 #output{
     position: absolute;
     width: 300px;
@@ -80,10 +85,9 @@ html,body{
 }
 
 .avatar{
-    width: 100px;height: 100px;
+    width: 120px;height: 120px;
     margin: 10px auto 30px;
     border-radius: 100%;
-    border: 2px solid #aaa;
     background-size: cover;
     background-image: bg.jpeg;
 }
