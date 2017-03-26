@@ -21,7 +21,7 @@
                 $.ajax({
                     type: "POST",
                     url: "/showpod",
-                    data: $(this).serialize(),
+                    data: $("#m_name").html(),
                     success: function() {
                         alert('success');
                     }
@@ -161,7 +161,7 @@
                             <tr>
                                 <td>
                                     <form id="shwpod"method="post" action="/showpod">
-                                       <p>TJHSST Friends</p>
+                                       <p id="m_name">TJHSST Friends</p>
                                         <button type="submit" class="btn btn-outline-success my-2 my-sm-0">View</button>
                                     </form>
 
