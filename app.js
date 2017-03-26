@@ -102,6 +102,10 @@ app.post('/showpod',(req,res) =>{
   // res.sendFile(__dirname + "/public/test.html")
 
 })
+app.get('/showpod',(req,res) =>{
+  res.sendFile(__dirname + "/public/groupDetails.html")
+
+})
 app.post('/addpod',(req,res)=>{
 
   group_json = {}

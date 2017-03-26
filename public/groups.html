@@ -16,19 +16,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#shwpod').on('submit', function(e) {
-                e.preventDefault();
-                alert($("#m_name").html());
-                $.ajax({
-
-                    url: "/showpod",
-                    data: {str: $('#m_name').html()},
-                    type: "POST",
-                    success: function() {
-                        alert('success');
-                    }
-                });
-            });
+            // $('#shwpod').on('submit', function(e) {
+            //     e.preventDefault();
+            //     alert($("#m_name").html());
+            //     $.ajax({
+            //
+            //         url: "/showpod",
+            //         data: {str: $('#m_name').html()},
+            //         type: "POST",
+            //         success: function() {
+            //             alert('success');
+            //         }
+            //     });
+            // });
             // $("#modal-form").on("submit", function(e) {
             //     var postData = $(this).serializeArray();
             //     var formURL = "/addpool"
@@ -172,9 +172,9 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <form id="shwpod"method="post" action="/showpod">
+                                    <form id="shwpod" action="/showpod">
                                        <p id="m_name">TJHSST Friends</p>
-                                        <button type="submit" class="btn btn-outline-success my-2 my-sm-0">View</button>
+                                        <button type="submit" onclick="document.shwpod.submit();" class="btn btn-outline-success my-2 my-sm-0">View</button>
                                     </form>
 
                                 </td>
