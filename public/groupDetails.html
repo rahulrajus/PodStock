@@ -3,8 +3,8 @@
 <html lang="en">
 
 <head>
-    <link rel="shortcut icon" href="Logo.png" />
-    <title>TJHSST Friends</title>
+        <link rel="shortcut icon" href="Logo.png" />
+    <title>Dashboard Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./Dashboard Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
@@ -14,8 +14,8 @@
     <link href="./Dashboard Template for Bootstrap_files/dashboard.css" rel="stylesheet">
     <script type="text/javascript" src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -67,8 +67,11 @@
             </nav>
 
             <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-                <h1>TJHSST Friends</h1>
+                <h1>Placeholder Pod Name</h1>
                 <!-- <form method="post" action= -->
+                <form id="returnToPods" method="post" action="/returnpods">
+                    <button type="submit" class="btn btn-outline-success my-2 my-sm-0">View</button>
+                </form>
                 <!-- <form class="form-horizontal" method="post" action="/addpod"> -->
 
 
@@ -91,40 +94,12 @@
 
                             </tr>
                         </tbody>
-
                     </table>
                 </div>
-                <div class="table-respsonsive">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td> <label for="ex1">Sachin Jain</label>
-                                    <input class="form-control" id="ex1" type="text"></td>
-                                <td> <label for="ex1">Rahul Rajan</label>
-                                    <input class="form-control" id="ex1" type="text"></td>
-                                <td> <label for="ex1">Saarthak Sethi</label>
-                                    <input class="form-control" id="ex1" type="text"></td>
-
-                            </tr>
-                            <tr>
-                                <td> <label for="ex1">Sid Rampally</label>
-                                    <input class="form-control" id="ex1" type="text"></td>
-                                <td> <label for="ex2">Alex Marwaha</label>
-                                    <input class="form-control" id="ex2" type="text"></td>
-                                <td> <label for="ex3">Vishal Reddy</label>
-                                    <input class="form-control" id="ex3" type="text"></td>
-
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-<<<<<<< HEAD
               <button class="btn btn-outline-success my-2 my-sm-0" type="button">Buy</button>
-=======
-                <form action="">
-                    <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Invest</button>
-                </form>
->>>>>>> 002bbaa3cb321cdf17d9215333d1a6badc598137
+              <div id="inpt-group">
+                <div>
+              </div>
 
 </body>
 

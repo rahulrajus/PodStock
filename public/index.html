@@ -47,26 +47,29 @@
             <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Overview <span class="sr-only">(current)</span></a>
+                        <form action = "/overview" id="over">
+
+                        <a class="nav-link active" onclick="document.over.submit();">Overview <span class="sr-only">(current)</span></a>
+                      </form>
                     </li>
                     <li class="nav-item">
-                        <form action="/mypod">
-                            <a class="nav-link" href="groups.html">My Pods</a>
+                        <form action="/mypod" id="pod">
+                            <a class="nav-link" onclick="document.pod.submit();">My Pods</a>
                         </form>
                     </li>
                     <li class="nav-item">
-                        <form action="/myinvestments"
-                        <a class="nav-link" href="investments.html">My Investments</a>
+                        <form action="/myinvestments" id="invest">
+                        <a class="nav-link" onclick="document.invest.submit();">My Investments</a>
                       </form>
                     </li>
                     <li class="nav-item">
                       <form action="/market" id="mark">
-                        <a class="nav-link" href="market.html" onclick="document.rec.submit();">Market</a>
+                        <a class="nav-link"  onclick="document.mark.submit();">Market</a>
                       </form>
                     </li>
                     <li class="nav-item">
                       <form action="recs" id="rec">
-                        <a class="nav-link" href="recs.html" onclick="document.rec.submit();">Recommendations</a>
+                        <a class="nav-link"  onclick="document.rec.submit();">Recommendations</a>
                       </form>
                     </li>
                 </ul>
