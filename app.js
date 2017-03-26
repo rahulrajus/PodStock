@@ -96,7 +96,11 @@ app.post('/mypods',(req,res)=>{
     })
   })
 })
-app.post('mypods/addpod',(req,res)=>{
+app.get('/showpod',(req,res) =>{
+  res.sendFile(__dirname + "/public/test.html")
+})
+app.post('/addpod',(req,res)=>{
+
   group_json = {}
   group_json["name"] = req.body.name;
   people = req.body.users;
