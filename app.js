@@ -86,6 +86,16 @@ app.get('/home', (req,res) =>{
 app.get('/mypods',(req,res)=>{
   res.sendFile(__dirname + "/public/groups.html");
 })
+app.post('/mypods',(req,res)=>{
+  req.db.users.find({"username":res}).limit(1).toArray(function (err,aum){
+    aum.forEach(function (err,doc){
+      if(doc != null){
+        console.log(doc)
+        res.send(doc)
+      }
+    })
+  })
+})
 app.post('/addpod',(req,res)=>{
   group_json = {}
   group_json["name"] = req.body.name;
@@ -106,6 +116,7 @@ app.post('/addpod',(req,res)=>{
 app.get('/myinvestments',(req,res)=>{
   res.sendFile(__dirname + "/public/investments.html");
 })
+
 // app.get('/mypods',(req,res)=>{
 //   res.sendFile(__dirname + "/public/groups.html");
 // })
