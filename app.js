@@ -26,26 +26,37 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.get('/', (req, res) => {
+  console.log(__dirname + "/public/authentication/login.html")
+  res.sendFile(__dirname + "/public/authentication/login.html");
+})
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(function(req,res,next){
-    req.db = db;
-    next();
-});
+//app.use(express.static('public/authentication/', {index: 'login.html'}))
+// app.use(function(req, res){
+//     res.sendFile(__dirname + '/public/authentication/login.html');
+//
+// });
+// app.use(function(req,res,next){
+//     req.db = db;
+//     next();
+// });
 
 // app.use('/', index);
 // app.use('/users', users);
 // app.use('/login',login)
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-})
+
 app.get('/login', (req, res) => {
   res.sendFile(__dirname + "/public/authentication/login.html");
 })
 app.get('/signup', (req, res) => {
   res.sendFile(__dirname + "/public/authentication/signup.html");
 })
-
+app.post('/login',(req,res) => {
+  console.log(req.body.Username);
+  console.log(req.body.Password);
+  res.sendFile(__dirname + "/public/index.html")
+})
 // app.get('/login',(req,res)=> {
 //   res.sendFile(__dirname + "/public/authentication/login.html");
 // })
