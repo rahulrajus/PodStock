@@ -13,3 +13,7 @@ a {
 .stockGraph {
     margin: 20px;
 }
+
+#create-but {
+    margin-left: 5px;
+}

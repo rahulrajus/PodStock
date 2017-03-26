@@ -3,12 +3,7 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+    <link rel="shortcut icon" href="Logo.png" />
     <title>Dashboard Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
@@ -16,43 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            // $('#shwpod').on('submit', function(e) {
-            //     e.preventDefault();
-            //     alert($("#m_name").html());
-            //     $.ajax({
-            //
-            //         url: "/showpod",
-            //         data: {str: $('#m_name').html()},
-            //         type: "POST",
-            //         success: function() {
-            //             alert('success');
-            //         }
-            //     });
-            // });
-            // $("#modal-form").on("submit", function(e) {
-            //     var postData = $(this).serializeArray();
-            //     var formURL = "/addpool"
-            //     alert("OK" + posData + formURL)
-            //     $.ajax({
-            //         url: "/addpod",
-            //         type: "POST",
-            //         data: {str:$('#m_name').html()},
-            //         // success: function(data, textStatus, jqXHR) {
-            //         //     $('#contact_dialog .modal-header .modal-title').html("Result");
-            //         //     $('#contact_dialog .modal-body').html(data);
-            //         //     $("#submitForm").remove();
-            //         // },
-            //         // error: function(jqXHR, status, error) {
-            //         //     console.log(status + ": " + error);
-            //         // }
-            //     });
-            //     e.preventDefault();
-            // });
 
-            // $("#create-but").on('click', function() {
-            //   alert("click")
-            //     $("#modal_form").submit();
-            // });
         });
 
     </script>
@@ -118,46 +77,16 @@
                 <h1>My Pods</h1>
                 <!-- <form method="post" action= -->
                 <!-- <form class="form-horizontal" method="post" action="/addpod"> -->
-                <button type="button" class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#myModal">Add Pod</button>
-                <!-- </form> -->
-                <script>
-                </script>
 
                 <!-- Modal -->
+                <span id="addPodSpan">
                 <form id="modal-form" name="modal-form" method="post" action="addpod">
-              <p>Pod Name</p>
+              <label for="name">Pod Name</label>
               <input type="text" id="name" name="name">
-              <p>Users</p>
+              <label for="users">Users</label>
               <input type="text" id="users" name="users" placeholder="Separate e-mails by ,">
-                <button type="submit" class="btn btn-default" id="create-but">Create</button>
-              </form>
-
-                <div id="myModal" class="modal" role="dialog">
-                    <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Add Pod</h4>
-                            </div>
-                                <div class="modal-body">
-                                      <!-- <form id="modal-form" name="modal-form">
-                                    <p>Pod Name</p>
-                                    <input type="text" id="name" name="name">
-                                    <p>Users</p>
-                                    <input type="text" id="users" name="users" placeholder="Separate e-mails by ,">
-                                    </form> -->
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal" id="create-but">Create</button>
-
-                                </div>
-
-                        </div>
-                    </div>
-                </div>
-
+                <button type="submit" class="btn btn-outline-success my-2 my-sm-0" id="create-but">Create</button>
+            </form> </span>
 
                 <div class="table-responsive">
                     <table class="table table-striped">
