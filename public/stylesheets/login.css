@@ -15,9 +15,10 @@ html,body{
 
 .login-container{
     position: relative;
-    width: 300px;
+    width: 400px;
     margin: 80px auto;
-    padding: 20px 40px 40px;
+    margin-bottom: 0px;
+    padding: 20px 50px 40px;
     text-align: center;
     background: #fff;
     border: 1px solid #ccc;
@@ -60,7 +61,22 @@ html,body{
     -webkit-transform: rotateZ(-2deg);
      -moz-transform: rotateZ(-2deg);
       -ms-transform: rotateZ(-2deg);
+}
 
+.login-create-account {
+    color: #fff;
+    text-align: center;
+    padding: 15px 0
+}
+
+.login-create-account a {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: bold
+}
+
+.login-create-account a:hover {
+    text-decoration: none
 }
 
 .avatar{
@@ -69,6 +85,7 @@ html,body{
     border-radius: 100%;
     border: 2px solid #aaa;
     background-size: cover;
+    background-image: bg.jpeg;
 }
 
 .form-box input{
