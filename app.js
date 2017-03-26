@@ -64,6 +64,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/login', (req, res) => {
   res.sendFile(__dirname + "/public/authentication/login.html");
 })
+app.get('/stockdata',(req,res) => {
+  res.sendFile(__dirname + "/public/quotes.txt")
+})
 app.get('/stockdata1',(req,res) => {
   res.sendFile(__dirname + "/public/aapl.csv");
 })
@@ -86,7 +89,8 @@ app.post('/login',(req,res) => {
   var nm = req.body.username;
   var ps = req.body.password;
   console.log(req.db.users.find("username: " + nm))
-  if(req.db.users.find("username: " + nm).count() > 0)
+  console.log(req.db.users.find({"username": "" + nm}).count())
+  if(req.db.users.find({"username": "" + nm}).count() > 0)
   {
     console.log("success")
     // res.writeHead(200,{
