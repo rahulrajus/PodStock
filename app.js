@@ -90,24 +90,43 @@ app.post('/login',(req,res) => {
   var ps = req.body.password;
   console.log(req.db.users.find("username: " + nm))
   console.log(req.db.users.find({"username": "" + nm}).count())
-  if(req.db.users.find({"username": "" + nm}).count() > 0)
-  {
-    console.log("success")
-    // res.writeHead(200,{
-    //   'Set-Cookie':'user=' + nm
-    // },function(r){
-    //     res.sendFile(__dirname + "/public/index.html");
-    //
-    // })
-    res.cookie('user',nm)
-     res.sendFile(__dirname + "/public/index.html");
-
-
-  }
-  else {
-    console.log("fail")
-    res.send("fail");
-  }
+  req.db.users.find({"username": "" + nm},function(err,data){
+    console.log(data.length)
+    if(data.length > 0)
+    {
+      console.log("success")
+      // res.writeHead(200,{
+      //   'Set-Cookie':'user=' + nm
+      // },function(r){
+      //     res.sendFile(__dirname + "/public/index.html");
+      //
+      // })
+      res.cookie('user',nm)
+       res.sendFile(__dirname + "/public/index.html");
+    }
+    else {
+      console.log("fail")
+      res.send("fail");
+    }
+  })
+  // if(req.db.users.find({"username": "" + nm}).hasNext())
+  // {
+  //   console.log("success")
+  //   // res.writeHead(200,{
+  //   //   'Set-Cookie':'user=' + nm
+  //   // },function(r){
+  //   //     res.sendFile(__dirname + "/public/index.html");
+  //   //
+  //   // })
+  //   res.cookie('user',nm)
+  //    res.sendFile(__dirname + "/public/index.html");
+  //
+  //
+  // }
+  // else {
+  //   console.log("fail")
+  //   res.send("fail");
+  // }
 
 })
 app.post('/signup',(req,res) => {
