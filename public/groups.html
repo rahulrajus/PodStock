@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0053)https://v4-alpha.getbootstrap.com/examples/dashboard/ -->
-<html lang="en" class="gr__v4-alpha_getbootstrap_com">
+<html lang="en">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://v4-alpha.getbootstrap.com/favicon.ico">
 
     <title>Dashboard Template for Bootstrap</title>
 
@@ -81,9 +80,9 @@
             <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
                 <h1>My Pods</h1>
                 <!-- <form method="post" action= -->
-                <form class="form-horizontal" method="post" action="/addpod">
+                <!-- <form class="form-horizontal" method="post" action="/addpod"> -->
                 <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#myModal">Add Pod</button>
-                </form>
+                <!-- </form> -->
 
 
                 <!-- Modal -->
@@ -91,26 +90,30 @@
                   <div class="modal-dialog">
 
                     <!-- Modal content-->
+
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Add Pod</h4>
                       </div>
+                      <form method="post" action="/addpod">
                       <div class="modal-body">
 
                           <p>Pod Name</p>
-                          <input type="text" id="name">
+                          <input type="text" id="name" name="name">
                           <p>Users</p>
-                          <input type="text" id="users" placeholder="Separate e-mails by ,">
+                          <input type="text" id="users" name="users" placeholder="Separate e-mails by ,">
 
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <form method="post" action="/createpod">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Create</button>
-                        </form>
+
+                          <button type="submit" class="btn btn-default" data-dismiss="modal">Create</button>
+
                       </div>
+                      </form>
                     </div>
+
 
                   </div>
                 </div>
