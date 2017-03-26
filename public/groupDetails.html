@@ -16,6 +16,28 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    	$("#sub").click(function(){
+    		var val1 = parseInt($("#ex1").val())
+    		var val2 = parseInt($("#ex2").val())
+    		var val3 = parseInt($("#ex3").val())
+    		var val4 = parseInt($("#ex4").val())
+    		var val5 = parseInt($("#ex5").val())
+    		var val6 = parseInt($("#ex6").val())
+    		var sum = val1 + val2 + val3 + val4 + val5 + val6
+    		var elem = $("#total-amt")
+    		var curr = parseInt(elem.html().substring(1))
+    		var neww = curr + sum
+    		elem.html("$" + (curr + sum) + "")
+    		var num_prcnt = ((parseInt($("#prcnt").html().substring(0,$("#prcnt").html().length - 1)))/100)*neww
+    		//alert(num_prcnt)
+    		num_prcnt+= val1
+    		var newww = (num_prcnt/neww)*100
+    		$("#prcnt").html(newww + "%")
+    	})
+    })
+    </script>
 </head>
 
 <body>
@@ -85,8 +107,8 @@
                         <tbody>
                             <tr>
                                 <td>6 - Sachin Jain, Rahul Rajan, Saarthak Sethi, Sid Rampally, Alex Marwaha, Vishal Reddy</td>
-                                <td>$420</td>
-                                <td>32.3%</td>
+                                <td id="total-amt">$200</td>
+                                <td id="prcnt">32.3%</td>
                                 <td>2
 
                             </tr>
@@ -101,30 +123,27 @@
                                 <td> <label for="ex1">Sachin Jain</label>
                                     <input class="form-control" id="ex1" type="text"></td>
                                 <td> <label for="ex1">Rahul Rajan</label>
-                                    <input class="form-control" id="ex1" type="text"></td>
+                                    <input class="form-control" id="ex2" type="text"></td>
                                 <td> <label for="ex1">Saarthak Sethi</label>
-                                    <input class="form-control" id="ex1" type="text"></td>
+                                    <input class="form-control" id="ex3" type="text"></td>
 
                             </tr>
                             <tr>
                                 <td> <label for="ex1">Sid Rampally</label>
-                                    <input class="form-control" id="ex1" type="text"></td>
+                                    <input class="form-control" id="ex4" type="text"></td>
                                 <td> <label for="ex2">Alex Marwaha</label>
-                                    <input class="form-control" id="ex2" type="text"></td>
+                                    <input class="form-control" id="ex5" type="text"></td>
                                 <td> <label for="ex3">Vishal Reddy</label>
-                                    <input class="form-control" id="ex3" type="text"></td>
+                                    <input class="form-control" id="ex6" type="text"></td>
 
                             </tr>
                         </tbody>
                     </table>
                 </div>
-<<<<<<< HEAD
-              <button class="btn btn-outline-success my-2 my-sm-0" type="button">Buy</button>
-=======
-                <form action="">
-                    <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Invest</button>
-                </form>
->>>>>>> 002bbaa3cb321cdf17d9215333d1a6badc598137
+                <div id="button">
+                <button type="button" class="btn btn-primary" id="sub">Invest!</button>
+                </div>
+
 
 </body>
 
