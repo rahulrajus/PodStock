@@ -64,8 +64,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/login', (req, res) => {
   res.sendFile(__dirname + "/public/authentication/login.html");
 })
-app.get('/stockdata',(req,res) => {
-  res.sendFile(__dirname + "/public/quotes.txt");
+app.get('/stockdata1',(req,res) => {
+  res.sendFile(__dirname + "/public/aapl.csv");
+})
+app.get('/stockdata2',(req,res) => {
+  res.sendFile(__dirname + "/public/tsla.csv");
 })
 app.get('/signup', (req, res) => {
   req.db.users.find({},function(error,data){
@@ -86,7 +89,7 @@ app.post('/login',(req,res) => {
   {
     console.log("success")
     res.writeHead(200,{
-      'Set-Cookie':'user=' + nm;
+      'Set-Cookie':'user=' + nm
     },function(r){
         res.sendFile(__dirname + "/public/index.html");
     })
