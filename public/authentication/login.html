@@ -3,174 +3,32 @@
 
 <head>
     <title>Login | PodStock</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../stylesheets/login.css">
-	<link rel="shortcut icon" href="" />
+    <link rel="shortcut icon" href="" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>
-
-    <div class="global-header-container">
-        <section class="logo-container">
-            <a href="https://www.fanduel.com/" target="_self">
-                <span class="logo logo-fanduel">PodStock</span>
-            </a>
-        </section>
-        <section class="logged-out-user">
-            <div class="support-menu-block secondary-nav-item">
-                <a href="https://www.fanduel.com/p/login" target="_self"><i class="icon responsible-play">&#59677;</i></a>
+    <div class="container">
+	<div class="login-container">
+            <div id="output"></div>
+            <div class="avatar"></div>
+            <div class="form-box">
+                <form action="" method="">
+                    <input name="user" type="text" placeholder="username">
+                    <input type="password" placeholder="password">
+                    <button class="btn btn-info btn-block login" type="submit">Login</button>
+                </form>
             </div>
-            <div class="support-menu-block secondary-nav-item">
-                <a href="https://www.fanduel.com/p/login" target="_self"><i class="icon help">&#59676;</i></a>
-            </div>
-            <div class="login-menu-block">
-                <a href="https://www.fanduel.com/p/login#login" class="button mini button-transparent-bg">Log in</a>
-            </div>
-            <div class="join-menu-block">
-                <a href="https://www.fanduel.com/p/Join" class="button mini primary">Join</a>
-            </div>
-        </section>
-    </div>
-    </header>
-    <section class="container">
-        <div id="usermessage" class="usermessage"></div>
-        <script>
-            $(function() {
-                $('#usermessage div').prepend("<a href='#close' class='close'><i class='icon close'>&#x2717;</i></a>");
-                $('#usermessage a.close').on("click", function() {
-                    $(this).parent().slideToggle('550');
-                });
-            });
-        </script>
-
-        <form action="" method="POST" enctype="multipart/form-data" id="ccf1"> <!-- FIX THIS! IMPORTANT! -->
-            <input type="hidden" name="cc_session_id" value="61vo9pc9fkab1vg18lq52mrog5">
-            <input type="hidden" name="cc_action" value="cca_login">
-            <input type="hidden" name="cc_failure_url" value="https://www.fanduel.com/p/LoginPp"><input type="hidden" name="cc_success_url" value="https://www.fanduel.com/">
-            <link rel="stylesheet" href="./Login _ FanDuel_files/authGui.base.b0a389a210f8912317d21eea0e9ff542.css">
-            <div class="no-frame-wrap">
-                <div class="login-card-wrap">
-                    <div class="login-logo">
-                        <a href="https://www.fanduel.com/" class="login-logo__link"><i class="icon logo-fanduel">&#57344;</i></a>
-                    </div>
-                    <div class="login-card">
-                        <h2 class="login-card-title">Get your game face on</h2>
-                        <div class="combo-form">
-                            <div class="combo-form-grouping">
-                                <div class="combo-form-row">
-                                    <div class="combo-form-input-group">
-                                        <label class="combo-form-label" for="email">Email Address</label>
-                                        <div class="form_error" id="ccf1.email.e"></div>
-                                        <input type="email" name="email" value="" class="inputbox " maxlength="255" size="50" style="width:200;" id="email"> </div>
-                                </div>
-                                <div class="combo-form-row">
-                                    <div class="combo-form-input-group">
-                                        <label class="combo-form-label" for="password">Password</label>
-                                        <div class="form_error" id="ccf1.password.e"></div>
-                                        <input type="password" name="password" value="" class="inputbox " style="width:200;" id="password"> </div>
-                                </div>
-                            </div>
-                            <div class="login-card-option-wrap">
-                                <div class="login-card-option remember-me">
-                                    <label for="checkbox_remember" class="checkbox-label">
-                        <input name="checkbox_remember" type="checkbox" id="checkbox_remember" value="1" checked="">
-                        Remember me
-                    </label>
-                                </div>
-                                <div class="login-card-option forgot-password">
-                                    <a href="https://www.fanduel.com/p/forgot_password">Forgot your password?</a>
-                                </div>
-                            </div>
-                            <input type="submit" name="login" value="Log in to your account" class="button primary fullwidth login-card-button">
-                        </div>
-                        <script>
-                            document.getElementById('email').focus();
-                        </script>
-
-                    </div>
-                    <div class="login-create-account">
-                        Don't have an account? <a href="https://www.fanduel.com/p/join">Create one now</a>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-    </section>
-    <footer class="global-footer">
-        <div class="footer-shared page-width">
-            <section class="footer-links column-6">
-                <ul class="footer-links-about">
-                    <li class="title">About</li>
-                    <li><a href="https://www.fanduel.com/about" target="_self" title="About FanDuel">FanDuel</a></li>
-                    <li><a href="https://www.fanduel.com/careers" target="_self" title="FanDuel Career Opportunities">Careers</a></li>
-                    <li><a href="https://www.fanduel.com/press" target="_self" title="FanDuel Press">Press &amp; Media</a></li>
-                    <li><a href="https://www.fanduel.com/legal" target="_self" title="Governance">Governance</a></li>
-                    <li><a href="https://www.fanduel.com/whats-new" target="_self" title="What&#39;s new">What's New</a></li>
-                </ul>
-
-                <ul class="footer-links-help">
-                    <li class="title">Help</li>
-                    <li><a href="https://www.fanduel.com/support" target="_self" title="Find support at FanDuel">Support</a></li>
-                    <li><a href="https://www.fanduel.com/how-it-works" target="_self" title="Discover how FanDuel works">How It Works</a></li>
-                    <li><a href="https://www.fanduel.com/rules" target="_self" title="FanDuel Rules &amp; Scoring">Rules &amp; Scoring</a></li>
-                    <li><a href="https://www.fanduel.com/trust" target="_self" title="Trust &amp; Safety">Trust &amp; Safety</a></li>
-                    <li><a href="https://www.fanduel.com/responsible" target="_self" title="Responsible Play">Responsible Play</a></li>
-                    <li><a href="https://www.fanduel.com/bill-of-rights" target="_self" title="Bill of Rights">Bill of Rights</a></li>
-                    <li><a href="https://www.fanduel.com/security" target="_self" title="Security">Security</a></li>
-                </ul>
-
-                <ul class="footer-links-more">
-                    <li class="title">More</li>
-                    <li><a href="https://www.fanduel.com/insider" target="_self" title="FanDuel Insider">FanDuel Insider</a></li>
-                    <li><a href="https://www.fanduel.com/partners" target="_self" title="Partners &amp; Affiliates">Affiliates</a></li>
-                    <li><a href="https://www.fanduel.com/promos" target="_self" title="FanDuel Promotions">Promotions</a></li>
-                    <li><a href="https://www.fanduel.com/terms" target="_self" title="Terms of Use">Terms of Use</a></li>
-                    <li><a href="https://www.fanduel.com/privacy" target="_self" title="Privacy Policy">Privacy Policy</a></li>
-                    <li><a href="https://www.fanduel.com/fantasy-football" target="_self" title="Fantasy Football">Fantasy Football</a></li>
-                </ul>
-            </section>
-
-            <section class="footer-extras column-6">
-                <ul class="footer-company-location">
-                    <li class="footer-company-title">FanDuel Inc</li>
-                    <li>New York, N.Y</li>
-                </ul>
-
-                <ul class="footer-social-links">
-                    <li><a href="https://facebook.com/fanduel"><i class="icon">&#9909;</i></a></li>
-                    <li><a href="https://twitter.com/fanduel"><i class="icon">&#9908;</i></a></li>
-                    <li><a href="http://instagram.com/fanduel"><i class="icon">�</i></a></li>
-                </ul>
-            </section>
         </div>
-
-        <section class="page-width footer-tertiary">
-            <ul class="footer-partners">
-                <li><span class="icon icon-nbc-sports">NBC Sports Offical Partner</span></li>
-                <li><a href="http://www.stats.com/" target="blank"><span class="icon icon-stats">Stats</span></a></li>
-                <li><a href="http://www.fsta.org/" target="blank"><span class="icon icon-fsta">FSTA</span></a></li>
-                <li><span class="icon icon-paypal">PayPal</span></li>
-                <li><span class="icon icon-visa">Visa</span></li>
-                <li><span class="icon icon-discover">Discover Network</span></li>
-                <li><span class="icon icon-mastercard">Mastercard</span></li>
-            </ul>
-
-            <div class="footer-copyright-links">
-                <ul>
-                    <li></li>
-                    <li><a href="https://www.fanduel.com/iphone-download" class="footer-app-store-link-apple"><span>Available on the App Store</span></a></li>
-                    <li><a href="https://www.fanduel.com/p/login#top" class="footer-back-to-top">Back to top</a></li>
-                </ul>
-                <span class="footer-copyright-notice">� 2009-2016. All Rights Reserved</span>
-            </div>
-        </section>
-    </footer>
-    <!-- TAIL:PAGE_PRE_SIGNUP -->
-</body>
-<div></div>
-
-</html>
+</div>
 </body>
 
 </html>
