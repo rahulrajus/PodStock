@@ -96,7 +96,7 @@ app.post('/mypods',(req,res)=>{
     })
   })
 })
-app.post('/addpod',(req,res)=>{
+app.post('mypods/addpod',(req,res)=>{
   group_json = {}
   group_json["name"] = req.body.name;
   people = req.body.users;
@@ -104,6 +104,7 @@ app.post('/addpod',(req,res)=>{
   group_json["people"] = people_lst;
   group_json["stocks"] = []
   group_json["profit"] = 0
+  console.log("OK " + group_json)
   req.db.groups.insert(group_json,function(err,d){
     console.log("success!")
   });
