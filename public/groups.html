@@ -19,38 +19,39 @@
             $('#shwpod').on('submit', function(e) {
                 e.preventDefault();
                 $.ajax({
-                    type: "POST",
+
                     url: "/showpod",
-                    data: $("#m_name").html(),
+                    data: {str: $('#m_name').html()},
+                    type: "POST",
                     success: function() {
                         alert('success');
                     }
                 });
             });
-            $("#modal-form").on("submit", function(e) {
-                var postData = $(this).serializeArray();
-                var formURL = $(this).attr("action");
-                alert("OK" + posData + formURL)
-                $.ajax({
-                    url: formURL,
-                    type: "POST",
-                    data: postData,
-                    // success: function(data, textStatus, jqXHR) {
-                    //     $('#contact_dialog .modal-header .modal-title').html("Result");
-                    //     $('#contact_dialog .modal-body').html(data);
-                    //     $("#submitForm").remove();
-                    // },
-                    // error: function(jqXHR, status, error) {
-                    //     console.log(status + ": " + error);
-                    // }
-                });
-                e.preventDefault();
-            });
+            // $("#modal-form").on("submit", function(e) {
+            //     var postData = $(this).serializeArray();
+            //     var formURL = "/addpool"
+            //     alert("OK" + posData + formURL)
+            //     $.ajax({
+            //         url: "/addpod",
+            //         type: "POST",
+            //         data: {str:$('#m_name').html()},
+            //         // success: function(data, textStatus, jqXHR) {
+            //         //     $('#contact_dialog .modal-header .modal-title').html("Result");
+            //         //     $('#contact_dialog .modal-body').html(data);
+            //         //     $("#submitForm").remove();
+            //         // },
+            //         // error: function(jqXHR, status, error) {
+            //         //     console.log(status + ": " + error);
+            //         // }
+            //     });
+            //     e.preventDefault();
+            // });
 
-            $("#create-but").on('click', function() {
-              alert("click")
-                $("#modal_form").submit();
-            });
+            // $("#create-but").on('click', function() {
+            //   alert("click")
+            //     $("#modal_form").submit();
+            // });
         });
 
     </script>
@@ -118,9 +119,18 @@
                 <!-- <form class="form-horizontal" method="post" action="/addpod"> -->
                 <button type="button" class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#myModal">Add Pod</button>
                 <!-- </form> -->
-
+                <script>
+                </script>
 
                 <!-- Modal -->
+                <form id="modal-form" name="modal-form" method="post" action="addpod">
+              <p>Pod Name</p>
+              <input type="text" id="name" name="name">
+              <p>Users</p>
+              <input type="text" id="users" name="users" placeholder="Separate e-mails by ,">
+                <button type="submit" class="btn btn-default" id="create-but">Create</button>
+              </form>
+
                 <div id="myModal" class="modal" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
@@ -130,16 +140,17 @@
                                 <h4 class="modal-title">Add Pod</h4>
                             </div>
                                 <div class="modal-body">
-                                      <form method="POST" action="/addpod" id="modal-form">
+                                      <!-- <form id="modal-form" name="modal-form">
                                     <p>Pod Name</p>
                                     <input type="text" id="name" name="name">
                                     <p>Users</p>
                                     <input type="text" id="users" name="users" placeholder="Separate e-mails by ,">
-                                    </form>
+                                    </form> -->
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-default" id="create-but">Create</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" id="create-but">Create</button>
+
                                 </div>
 
                         </div>

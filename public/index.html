@@ -55,13 +55,19 @@
                         </form>
                     </li>
                     <li class="nav-item">
+                        <form action="/myinvestments"
                         <a class="nav-link" href="investments.html">My Investments</a>
+                      </form>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="market.html">Market</a>
+                      <form action="/market" id="mark">
+                        <a class="nav-link" href="market.html" onclick="document.rec.submit();">Market</a>
+                      </form>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="recs.html">Recommendations</a>
+                      <form action="recs" id="rec">
+                        <a class="nav-link" href="recs.html" onclick="document.rec.submit();">Recommendations</a>
+                      </form>
                     </li>
                 </ul>
             </nav>
@@ -90,13 +96,20 @@
                         <span class="text-muted">Look at all your investments in one place</span>
                     </div>
                     <div class="col-6 col-sm-3 placeholder">
-                        <img src="https://image.flaticon.com/icons/svg/138/138339.svg" action="/mymarket" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+                      <form action="/market">
+                        <!-- <img src="https://image.flaticon.com/icons/svg/138/138339.svg" action="/mymarket" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail"> -->
+                        <input type="image" src="https://image.flaticon.com/icons/svg/138/138339.svg" type="submit" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail" name="market" id="market">
 
+                      </form>
                         <h4>Market</h4>
                         <span class="text-muted">Learn about the market surrounding your stocks</span>
                     </div>
                     <div class="col-6 col-sm-3 placeholder">
-                        <img src="http://www.icons101.com/icon_ico/id_82026/Notes.ico" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+                      <form action="/recs">
+                        <!-- <img src="http://www.icons101.com/icon_ico/id_82026/Notes.ico" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail"> -->
+                        <input type="image" src="http://www.icons101.com/icon_ico/id_82026/Notes.ico" type="submit" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail" name="recs" id="recs">
+
+                      </form>
                         <h4>Recommendations</h4>
                         <span class="text-muted">Get Recommendations about your Stock Portfolio</span>
                     </div>

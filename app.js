@@ -18,7 +18,8 @@ var mongojs = require('mongojs');
 // var monk = require('monk');
 // var db = mongo.connect('mongodb://localhost:27017/PodStock');
 var mongojs = require("mongojs")
-var db = mongojs('mongodb://localhost:27017/PodStock')
+var db = mongojs('mongodb://127.0.0.1:27017/PodStock',['users','groups'])
+
 // connect('mongodb://localhost:27017/PodStock', ["users","groups"]);
 // var db = mongojs('PodStock')
 // var users = db.createCollection('users',{})
@@ -31,6 +32,7 @@ app.set('view engine', 'pug');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(function(req,res,next){
     req.db = db;
+    console.log("test",db.users.find({email:"rahulrajan@gmail.com"}))
     next();
 });
 app.use(logger('dev'));
@@ -96,30 +98,62 @@ app.post('/mypods',(req,res)=>{
     })
   })
 })
-app.get('/showpod',(req,res) =>{
-  res.sendFile(__dirname + "/public/test.html")
+app.post('/showpod',(req,res) =>{
+  // res.sendFile(__dirname + "/public/test.html")
+
 })
 app.post('/addpod',(req,res)=>{
 
   group_json = {}
   group_json["name"] = req.body.name;
   people = req.body.users;
-  people_lst = people.split();
+  people_lst = people.split(",");
   group_json["people"] = people_lst;
   group_json["stocks"] = []
   group_json["profit"] = 0
   console.log("OK " + group_json)
+
+  // req.db.createCollection("groups")
+  console.log("hello",req.db.groups)
+  // var groupsCollection = db.collection('groups');
+  // var userCollection = db= mongo.createCollection('groups');
+
   req.db.groups.insert(group_json,function(err,d){
+
     console.log("success!")
+    console.log(err)
+
+    console.log(d)
   });
+
   for(var i = 0;i<people_lst.length;i++)
   {
-    req.db.users.find({"email":"" + people_lst[i]}).groups.insert(req.body.name)
+    console.log("ok",people_lst[i])
+    obj = {"email":people_lst[i]}
+    console.log("k",req.db.users.find())
+    console.log("okk",req.db.users.find({"email":"rahulrajan@gmail.com"}));
+
+    req.db.users.find({"email":("" + people_lst[i])},function(err,doc){
+      console.log(err)
+      doc.groups.insert(req.body.name)
+    })
+    // .forEach(function(d){
+    //   // d.createCollection("groups")
+    //   // if(d)
+    //   d.groups.insert(req.body.name)
+    // })
   }
 
 })
+
 app.get('/myinvestments',(req,res)=>{
   res.sendFile(__dirname + "/public/investments.html");
+})
+app.get('/market',(req,res)=>{
+  res.sendFile(__dirname + "/public/market.html")
+})
+app.get('/recs',(req,res)=>{
+  res.sendFile(__dirname + "/public/recs.html")
 })
 
 // app.get('/mypods',(req,res)=>{
@@ -130,7 +164,9 @@ app.post('/login',(req,res) => {
   console.log(req.body.password);
   var nm = req.body.username;
   var ps = req.body.password;
-  console.log(req.db.users.find("username: " + nm))
+  // req.db.users.find("username: " + nm,function(err,doc){
+  //   console.log("error: ", err)
+  // })
   console.log(req.db.users.find({"username": "" + nm}).count())
   req.db.users.find({"username": "" + nm},function(err,data){
     console.log(data.length)
@@ -181,6 +217,7 @@ app.post('/signup',(req,res) => {
   // req.db.users.insertOne({ name: t_name,email: t_email,username: t_username,password: t_password,capital_one: t_acct })
   req.db.users.insert({ name: t_name,email: t_email,username: t_username,password: t_password,capital_one: t_acct },function(err,users){
     console.log('error')
+
   })
   //console.log(req.db.users.insert)
   // var db= req.db.collection('users');
