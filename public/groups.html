@@ -15,7 +15,7 @@
     <link href="./Dashboard Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
         $( document ).ready(function() {
-          $('#showpod').on('submit', function(e){
+          $('#shwpod').on('submit', function(e){
             e.preventDefault();
             $.ajax({
                type: "POST",
@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 
-<body >
+<body>
     <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
         <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -44,7 +44,7 @@
         <nav class="navbar navbar-light" id="navBrand">
             <form class="navbar-brand" action="/home">
                 <img src="Logo.png" width="40" height="40" class="d-inline-block align-top" alt="Logo">
-                <span id="navbar-text">Bootstrap</span>
+                <span id="navbar-text">PodStock</span>
             </form>
         </nav>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
@@ -106,7 +106,6 @@
                       <form method="post" action="/addpod">
                       <div class="modal-body">
 
-
                           <p>Pod Name</p>
                           <input type="text" id="name" name="name">
                           <p>Users</p>
@@ -138,7 +137,7 @@
                     <tbody>
                       <tr>
                         <td>
-                          <form id="showpod" action="index.html" method="post" action="/showpod">
+                          <form id="shwpod" action="index.html" method="post" action="/showpod">
                             <button type="submit" class="btn btn-outline-success my-2 my-sm-0">View</button>
                           </form>
 
