@@ -65,7 +65,7 @@ app.get('/login', (req, res) => {
   res.sendFile(__dirname + "/public/authentication/login.html");
 })
 app.get('/stockdata',(req,res) => {
-  res.sendFile(__dirname + "/public/quotes.txt")
+  res.sendFile(__dirname + "/public/quotes.txt");
 })
 app.get('/signup', (req, res) => {
   req.db.users.find({},function(error,data){
@@ -74,10 +74,29 @@ app.get('/signup', (req, res) => {
   res.sendFile(__dirname + "/public/authentication/signup.html");
 
 })
+app.get('/mypods',(req,res)=>{
+  res.sendFile(__dirname + "/public/groups.html");
+})
 app.post('/login',(req,res) => {
   console.log(req.body.Username);
   console.log(req.body.Password);
-  res.sendFile(__dirname + "/public/index.html")
+  var nm = req.body.Username;
+  var ps = req.body.Password;
+  if(req.db.users.find("username: " + nm))
+  {
+    console.log("success")
+    res.writeHead(200,{
+      'Set-Cookie':'user=' + nm;
+    },function(r){
+        res.sendFile(__dirname + "/public/index.html");
+    })
+
+
+  }
+  else {
+    console.log("fail")
+  }
+
 })
 app.post('/signup',(req,res) => {
   t_name = req.body.name;
