@@ -81,23 +81,28 @@ app.get('/mypods',(req,res)=>{
   res.sendFile(__dirname + "/public/groups.html");
 })
 app.post('/login',(req,res) => {
-  console.log(req.body.Username);
-  console.log(req.body.Password);
-  var nm = req.body.Username;
-  var ps = req.body.Password;
-  if(req.db.users.find("username: " + nm))
+  console.log(req.body.username);
+  console.log(req.body.password);
+  var nm = req.body.username;
+  var ps = req.body.password;
+  console.log(req.db.users.find("username: " + nm))
+  if(req.db.users.find("username: " + nm).count() > 0)
   {
     console.log("success")
-    res.writeHead(200,{
-      'Set-Cookie':'user=' + nm
-    },function(r){
-        res.sendFile(__dirname + "/public/index.html");
-    })
+    // res.writeHead(200,{
+    //   'Set-Cookie':'user=' + nm
+    // },function(r){
+    //     res.sendFile(__dirname + "/public/index.html");
+    //
+    // })
+    res.cookie('user',nm)
+     res.sendFile(__dirname + "/public/index.html");
 
 
   }
   else {
     console.log("fail")
+    res.send("fail");
   }
 
 })
