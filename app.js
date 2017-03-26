@@ -10,6 +10,11 @@ var users = require('./routes/users');
 var login = require('./routes/login')
 
 var app = express();
+var MongoClient = require('mongodb').MongoClient
+  , assert = require('assert');
+var url = 'mongodb://localhost:27017/myproject';
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,6 +27,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
 
 // app.use('/', index);
 // app.use('/users', users);
@@ -33,6 +42,10 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
   res.sendFile(__dirname + "/public/authentication/login.html");
 })
+app.get('/signup', (req, res) => {
+  res.sendFile(__dirname + "/public/authentication/signup.html");
+})
+
 // app.get('/login',(req,res)=> {
 //   res.sendFile(__dirname + "/public/authentication/login.html");
 // })
