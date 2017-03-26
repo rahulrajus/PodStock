@@ -80,9 +80,35 @@ app.get('/signup', (req, res) => {
   res.sendFile(__dirname + "/public/authentication/signup.html");
 
 })
+app.get('/home', (req,res) =>{
+  res.sendFile(__dirname + "/public/index.html")
+})
 app.get('/mypods',(req,res)=>{
   res.sendFile(__dirname + "/public/groups.html");
 })
+app.post('/addpod',(req,res)=>{
+  group_json = {}
+  group_json["name"] = req.body.name;
+  people = req.body.users;
+  people_lst = people.split();
+  group_json["people"] = people_lst;
+  group_json["stocks"] = []
+  group_json["profit"] = 0
+  req.db.groups.insert(group_json,function(err,d){
+    console.log("success!")
+  });
+  for(var i = 0;i<people_lst.length;i++)
+  {
+    req.db.users.find({"email":"" + people_lst[i]}).groups.insert(req.body.name)
+  }
+
+})
+app.get('/myinvestments',(req,res)=>{
+  res.sendFile(__dirname + "/public/investments.html");
+})
+// app.get('/mypods',(req,res)=>{
+//   res.sendFile(__dirname + "/public/groups.html");
+// })
 app.post('/login',(req,res) => {
   console.log(req.body.username);
   console.log(req.body.password);
