@@ -18,6 +18,7 @@
         $(document).ready(function() {
             $('#shwpod').on('submit', function(e) {
                 e.preventDefault();
+                alert($("#m_name").html());
                 $.ajax({
 
                     url: "/showpod",
