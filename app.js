@@ -134,13 +134,25 @@ app.post('/addpod',(req,res)=>{
   {
     console.log("ok",people_lst[i])
     obj = {"email":people_lst[i]}
-    console.log("k",req.db.users.find())
-    console.log("okk",req.db.users.find({"email":"rahulrajan@gmail.com"}));
+    // console.log("k",req.db.users.find())
+    // console.log("okk",req.db.users.find({"email":"rahulrajan@gmail.com"}));
 
-    req.db.users.find({"email":("" + people_lst[i])},function(err,doc){
-      console.log(err)
-      doc.groups.insert(req.body.name)
-    })
+    // req.db.users.find({"email":("" + people_lst[i])},function(err,usrs){
+    //   console.log(err)
+    //   console.log(usrs)
+    //   usrs.forEach(function(usr){
+    //     console.log(usr)
+    //     usr.insert(req.body.name)
+    //   })
+    // })
+    req.db.users.findAndModify(
+
+      {query: {"email":people_lst[i]},update: {$addToSet : {groups: req.body.name}}}, function(err,doc,lastErrorObject)
+      {
+        console.log(doc)
+      }
+
+  );
     // .forEach(function(d){
     //   // d.createCollection("groups")
     //   // if(d)
