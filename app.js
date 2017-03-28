@@ -14,6 +14,7 @@ var cookie = require('cookie')
 var app = express();
 var mongo = require('mongodb');
 var mongojs = require('mongojs');
+var jsdom = require('jsdom')
 // var MongoClient = require('mongodb').MongoClient;
 // var monk = require('monk');
 // var db = mongo.connect('mongodb://localhost:27017/PodStock');
@@ -87,7 +88,25 @@ app.get('/home', (req,res) =>{
   res.sendFile(__dirname + "/public/index.html")
 })
 app.get('/mypods',(req,res)=>{
-  res.sendFile(__dirname + "/public/groups.html");
+  var htmlSource = fs.readFileSync("groups.html", "utf8");
+   call_jsdom(htmlSource, function (window) {
+       var $ = window.$;
+       var usrname = cookies.get("username")
+       req.db.users.find({"username":usrname}.limit(1).toArray(err,aum){
+         aum.forEach(function(err,doc){
+           var grplst = doc["groups"]
+           for(var i;i<grplst.length();i++)
+           {
+             $("#shwpod").append("<p id=\"m_name\"><button type=\"submit\" onclick=\"document.shwpod.submit();\" class=\"btn btn-outline-success my-2 my-sm-0\">View</button>" +  grplst[i] + "</p>")
+           }
+         })
+       })
+      //  $("h1").text(title);
+
+       console.log(documentToSource(window.document));
+   });
+  //res.sendFile(__dirname + "/public/groups.html");
+  res.sendFile(documentToSource(window.document))
 })
 app.post('/mypods',(req,res)=>{
   req.db.users.find({"username":res}).limit(1).toArray(function (err,aum){
