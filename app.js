@@ -18,7 +18,8 @@ var mongojs = require('mongojs');
 // var monk = require('monk');
 // var db = mongo.connect('mongodb://localhost:27017/PodStock');
 var mongojs = require("mongojs")
-var db = mongojs('mongodb://127.0.0.1:27017/PodStock',['users','groups'])
+var db = mongojs('mongodb://podstock:Podstock123@ds139959.mlab.com:39959/podstock',['users','groups'])
+mongodb://<dbuser>:<dbpassword>@ds139959.mlab.com:39959/podstock
 
 // connect('mongodb://localhost:27017/PodStock', ["users","groups"]);
 // var db = mongojs('PodStock')
