@@ -152,7 +152,9 @@ app.post('/addpod',(req,res)=>{
         console.log(doc)
       }
 
+
   );
+        res.sendFile(__dirname + "/public/groupDetails.html");
     // .forEach(function(d){
     //   // d.createCollection("groups")
     //   // if(d)
