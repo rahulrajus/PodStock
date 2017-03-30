@@ -9,18 +9,31 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
 var jquery = require('jquery')
-var cookie = require('cookie')
+var Cookies = require('cookie')
 
 var app = express();
 var mongo = require('mongodb');
 var mongojs = require('mongojs');
 var jsdom = require('jsdom')
+var fs = require('fs')
 // var MongoClient = require('mongodb').MongoClient;
 // var monk = require('monk');
 // var db = mongo.connect('mongodb://localhost:27017/PodStock');
 var mongojs = require("mongojs")
-var db = mongojs('mongodb://podstock:Podstock123@ds139959.mlab.com:39959/podstock',['users','groups'])
-mongodb://<dbuser>:<dbpassword>@ds139959.mlab.com:39959/podstock
+//var db = mongojs('mongodb://podstock:Podstock123@ds139959.mlab.com:39959/podstock',['users','groups'])
+
+var MongoClient = require('mongodb').MongoClient
+ , assert = require('assert');
+var url = "mongodb://podstock:Podstock123@ds139959.mlab.com:39959/podstock"
+var db = MongoClient.connect('mongodb://podstock:Podstock123@ds139959.mlab.com:39959/podstock')
+app.use(function(req,res,next){
+    req.db = db;
+    //console.log("test",db.users.findOne({email:"rahulrajan@gmail.com"}))
+    next();
+  //   var cookies = new Cookies( req, res, { "keys": keys } )
+  // , username
+});
+//mongodb://<dbuser>:<dbpassword>@ds139959.mlab.com:39959/podstock
 
 // connect('mongodb://localhost:27017/PodStock', ["users","groups"]);
 // var db = mongojs('PodStock')
@@ -32,11 +45,7 @@ app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(function(req,res,next){
-    req.db = db;
-    console.log("test",db.users.find({email:"rahulrajan@gmail.com"}))
-    next();
-});
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -78,7 +87,7 @@ app.get('/stockdata2',(req,res) => {
   res.sendFile(__dirname + "/public/tsla.csv");
 })
 app.get('/signup', (req, res) => {
-  req.db.users.find({},function(error,data){
+  req.db.collection("users").find({},function(error,data){
     console.log(data)
   })
   res.sendFile(__dirname + "/public/authentication/signup.html");
@@ -87,36 +96,81 @@ app.get('/signup', (req, res) => {
 app.get('/home', (req,res) =>{
   res.sendFile(__dirname + "/public/index.html")
 })
-app.get('/mypods',(req,res)=>{
-  var htmlSource = fs.readFileSync("groups.html", "utf8");
-   call_jsdom(htmlSource, function (window) {
-       var $ = window.$;
-       var usrname = cookies.get("username")
-       req.db.users.find({"username":usrname}.limit(1).toArray(err,aum){
-         aum.forEach(function(err,doc){
-           var grplst = doc["groups"]
-           for(var i;i<grplst.length();i++)
-           {
-             $("#shwpod").append("<p id=\"m_name\"><button type=\"submit\" onclick=\"document.shwpod.submit();\" class=\"btn btn-outline-success my-2 my-sm-0\">View</button>" +  grplst[i] + "</p>")
-           }
-         })
-       })
-      //  $("h1").text(title);
+function parseCookies (request) { //http://stackoverflow.com/questions/3393854/get-and-set-a-single-cookie-with-node-js-http-server
+    var list = {},
+        rc = request.headers.cookie;
 
-       console.log(documentToSource(window.document));
-   });
-  //res.sendFile(__dirname + "/public/groups.html");
-  res.sendFile(documentToSource(window.document))
+    rc && rc.split(';').forEach(function( cookie ) {
+        var parts = cookie.split('=');
+        list[parts.shift().trim()] = decodeURI(parts.join('='));
+    });
+
+    return list;
+}
+
+function call_jsdom(source, callback) {
+       jsdom.env(
+           source,
+           [ 'jquery-1.7.1.min.js' ],  // (*)
+           function(errors, window) {  // (**)
+               process.nextTick(
+                   function () {
+                       if (errors) {
+                           throw new Error("There were errors: "+errors);
+                       }
+                       callback(window);
+                   }
+               );
+           }
+       );
+   }
+   function documentToSource(doc) {
+    // The non-standard window.document.outerHTML also exists,
+    // but currently does not preserve source code structure as well
+
+    // The following two operations are non-standard
+    return doc.doctype.toString()+doc.innerHTML;
+}
+app.get('/mypods',(req,res)=>{
+  MongoClient.connect(url, function(err, db) {
+      console.log(db.collection('users').find({"username": "rahulrajus"}))
+
+  console.log(db.collection('users').find({"username": "rahulrajus"}))
+  var htmlSource = fs.readFileSync(__dirname + "/public/groups.html", "utf8");
+
+    // console.log(data.length)
+    call_jsdom(htmlSource, function (window) {
+        var $ = require('jquery')(window)
+        var cookies = parseCookies(req);
+        var usrname = cookies["user"]
+        console.log(cookies)
+           console.log("OK",usrname)
+
+  db.collection('users').find({"username": ""+usrname}).toArray(function(err,data){
+       console.log(data.length)
+      //  data.forEach(function(err,doc){
+         var grplst = data[0]["groups"]
+         console.log(data[0])
+         console.log("OK",grplst)
+         console.log(grplst.length)
+         for(var i = 0;i<grplst.length;i++)
+         {
+           console.log(i)
+           $("#shwpod").append("<p id=\"m_name\"><button type=\"submit\" onclick=\"document.shwpod.submit();\" class=\"btn btn-outline-success my-2 my-sm-0\">View</button>" +  grplst[i] + "</p>")
+         }
+      //  })
+        //  console.log(k)
+         res.send($("html")[0].outerHTML)
+
+     })
+
+    });
+
+
+  // db.close();
 })
-app.post('/mypods',(req,res)=>{
-  req.db.users.find({"username":res}).limit(1).toArray(function (err,aum){
-    aum.forEach(function (err,doc){
-      if(doc != null){
-        console.log(doc)
-        res.send(doc)
-      }
-    })
-  })
+
+
 })
 app.post('/showpod',(req,res) =>{
   // res.sendFile(__dirname + "/public/test.html")
@@ -205,8 +259,11 @@ app.post('/login',(req,res) => {
   // req.db.users.find("username: " + nm,function(err,doc){
   //   console.log("error: ", err)
   // })
-  console.log(req.db.users.find({"username": "" + nm}).count())
-  req.db.users.find({"username": "" + nm},function(err,data){
+  MongoClient.connect(url, function(err, db) {
+      console.log(db.collection('users').find({"username": "" + nm}))
+
+  console.log(db.collection('users').find({"username": "" + nm}))
+  db.collection('users').find({"username": "" + nm}).toArray(function(err,data){
     console.log(data.length)
     if(data.length > 0)
     {
@@ -225,6 +282,9 @@ app.post('/login',(req,res) => {
       res.send("fail");
     }
   })
+  // db.close();
+})
+
   // if(req.db.users.find({"username": "" + nm}).hasNext())
   // {
   //   console.log("success")
@@ -253,8 +313,11 @@ app.post('/signup',(req,res) => {
   t_acct = req.body.account;
   console.log(t_name + " " + t_email + " " + t_username + " " + t_password + " " + t_acct)
   // req.db.users.insertOne({ name: t_name,email: t_email,username: t_username,password: t_password,capital_one: t_acct })
-  req.db.users.insert({ name: t_name,email: t_email,username: t_username,password: t_password,capital_one: t_acct },function(err,users){
+  MongoClient.connect(url, function(err, db) {
+  db.collection('users').insert({ name: t_name,email: t_email,username: t_username,password: t_password,capital_one: t_acct },function(err,users){
     console.log('error')
+    db.close();
+  })
 
   })
   //console.log(req.db.users.insert)
