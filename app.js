@@ -188,22 +188,18 @@ app.post('/addpod',(req,res)=>{
   people_lst = people.split(",");
   group_json["people"] = people_lst;
   group_json["stocks"] = []
-  group_json["profit"] = 0
-  console.log("OK " + group_json)
-
+   console.log("OK " + group_json)
+ MongoClient.connect(url, function(err,db){
+   db.collection('groups').insert(group_json)
+   db.close();
+ })
   // req.db.createCollection("groups")
-  console.log("hello",req.db.groups)
+  // console.log("hello",req.db.groups)
   // var groupsCollection = db.collection('groups');
   // var userCollection = db= mongo.createCollection('groups');
 
-  req.db.groups.insert(group_json,function(err,d){
 
-    console.log("success!")
-    console.log(err)
-
-    console.log(d)
-  });
-
+      MongoClient.connect(url, function(err, db) {
   for(var i = 0;i<people_lst.length;i++)
   {
     console.log("ok",people_lst[i])
@@ -219,15 +215,26 @@ app.post('/addpod',(req,res)=>{
     //     usr.insert(req.body.name)
     //   })
     // })
-    req.db.users.findAndModify(
 
-      {query: {"email":people_lst[i]},update: {$addToSet : {groups: req.body.name}}}, function(err,doc,lastErrorObject)
-      {
-        console.log(doc)
-      }
+  //   db.collection("users").findAndModify(
+  //
+  //     {query: {"email":people_lst[i]},update: {$addToSet : {groups: req.body.name}}}, function(err,doc,lastErrorObject)
+  //     {
+  //       console.log(doc)
+  //     }
+  //
+  //
+  // );
+  db.collection("users").updateOne({"email":people_lst[i]},{$addToSet : {groups: req.body.name}},function(err,result){
+    assert.equal(err, null);
+  //  assert.equal(1, result.result.n);
+    //console.log("Updated the document with the field a equal to 2");
+    // callback(result);
+    console.log(result)
+  })
+  // db.collection("groups").updateOne({})
 
 
-  );
         res.sendFile(__dirname + "/public/groupDetails.html");
     // .forEach(function(d){
     //   // d.createCollection("groups")
@@ -235,6 +242,7 @@ app.post('/addpod',(req,res)=>{
     //   d.groups.insert(req.body.name)
     // })
   }
+  })
 
 })
 
@@ -359,5 +367,6 @@ app.use(function(err, req, res, next) {
 });
 app.listen(3000, function() {
   console.log('listening on 3000')
+
 })
 module.exports = app;
