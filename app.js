@@ -87,9 +87,9 @@ app.get('/stockdata2',(req,res) => {
   res.sendFile(__dirname + "/public/tsla.csv");
 })
 app.get('/signup', (req, res) => {
-  req.db.collection("users").find({},function(error,data){
-    console.log(data)
-  })
+  // req.db.collection("users").find({},function(error,data){
+  //   console.log(data)
+  // })
   res.sendFile(__dirname + "/public/authentication/signup.html");
 
 })
@@ -144,7 +144,7 @@ app.get('/mypods',(req,res)=>{
         var cookies = parseCookies(req);
         var usrname = cookies["user"]
         console.log(cookies)
-           console.log("OK",usrname)
+           console.log("OKsice me boshal xd",usrname)
 
   db.collection('users').find({"username": ""+usrname}).toArray(function(err,data){
        console.log(data.length)
@@ -153,12 +153,17 @@ app.get('/mypods',(req,res)=>{
          console.log(data[0])
          console.log("OK",grplst)
          console.log(grplst.length)
-         for(var i = 0;i<grplst.length;i++)
-         {
-           console.log(i)
-           $("#shwpod").append("<p id=\"m_name\"><button type=\"submit\" onclick=\"document.shwpod.submit();\" class=\"btn btn-outline-success my-2 my-sm-0\">View</button>" +  grplst[i] + "</p>")
-         }
+        //  for(var i = 0;i<grplst.length;i++)
+        //  {
+        //    console.log(i)
+        //    $("#shwpod").append("<p id=\"m_name\"><button type=\"submit\" onclick=\"document.shwpod.submit();\" class=\"btn btn-outline-success my-2 my-sm-0\">View</button>" +  grplst[i] + "</p>")
+        //  }
       //  })
+        data = {
+          "groups_info": grplst,
+          "myName": data[0]["name"]
+
+        }
         //  console.log(k)
          res.send($("html")[0].outerHTML)
 

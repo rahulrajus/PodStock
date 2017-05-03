@@ -4,7 +4,7 @@
 
 <head>
     <link rel="shortcut icon" href="Logo.png" />
-    <title>Dashboard Template for Bootstrap</title>
+    <title>My Groups</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./Dashboard Template for Bootstrap_files/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
                 <li class="nav-item active">
 
             </ul>
-            <span id="navbar-text" style="color: white;">Welcome, Rahul!</span>
+                        <span id="navbar-text" style="color: white;">Welcome, {{myName}}!</span>
             <img src="http://www.freeiconspng.com/uploads/profile-icon-9.png" href="profile.html" width="40" height="40" alt="">
             <form class="form-inline mt-2 mt-md-0" action="/login">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
@@ -100,19 +100,21 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {{#each groups_info}}
                             <tr>
                                 <td>
                                     <form id="shwpod" action="/showpod">
-                                       <p id="m_name"><button type="submit" onclick="document.shwpod.submit();" class="btn btn-outline-success my-2 my-sm-0">View</button> TJHSST Friends</p>
+                                       <p id="m_name"><button type="submit" onclick="document.shwpod.submit();" class="btn btn-outline-success my-2 my-sm-0">View</button> {{name}}</p>
 
                                     </form>
-
                                 </td>
-                                <td>6</td>
-                                <td>$200</td>
-                                <td>32.3%</td>
-
+                                <td>{{groupSize}}</td>
+                                <td>{{accountValue}}</td>
+                                <td>{{percentShare}}</td>
+                          
                             </tr>
+                            {{/each}}
+
                         </tbody>
                     </table>
                 </div>
